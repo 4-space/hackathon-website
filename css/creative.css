@@ -56,8 +56,8 @@ p {
 }
 
 .bg-dark {
-    color: #000;
-    background-color: #222;
+    color: #86d7ff;
+    background-color: #86d7ff;
 }
 
 .text-faded {
@@ -177,7 +177,7 @@ header {
     width: 100%;
     min-height: auto;
     text-align: center;
-    color: #000;
+    color: #fff;
     background-image: url(../img/header.jpg);
     background-position: center;
     -webkit-background-size: cover;
@@ -332,9 +332,9 @@ header .header-content .header-content-inner p {
 }
 
 .btn-default {
-    border-color: #000;
+    border-color: #fff;
     color: #222;
-    background-color: #000;
+    background-color: ##c1e4ff;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -386,8 +386,8 @@ fieldset[disabled] .btn-default.active {
 
 .btn-primary {
     border-color: #86d7ff;
-    color: #000;
-    background-color: #f05f40;
+    color: #fff;
+    background-color: #86d7ff;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -434,7 +434,7 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-primary .badge {
     color: #f05f40;
-    background-color: #000;
+    background-color: #fff;
 }
 
 .btn {
