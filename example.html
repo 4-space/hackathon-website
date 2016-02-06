@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Example Analyais</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+        
+        
+        <style>
+            .gs-webResult:hover { 
+  background:#f5f5f5; 
+  -webkit-transition: all .3s; 
+  transition:all .3s;
+}
+
+label {
+  display: inline-block;
+  width: 5em;
+}
+
+body {
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	font-size: 62.5%;
+}
+
+
+.ui-tooltip {
+  position:absolute; 
+  float:right; 
+  top:-50px;
+  z-index:5000;
+  display:none;
+} 
+
+.gsc-result:hover .ui-tooltip {
+  display:block; 
+  position:absolute; 
+  right:0px;;
+  bottom:0px;
+  top:400px;
+  width:300px;
+  font-family: sans-serif;
+}
+        </style>
+    </head>
+    <body>
+        
+
+<gcse:search></gcse:search>
+
+
+
+<script>
+    // Make sure in jsFiddle you have selected option onLoad
+(function() {
+  var cx = '017643444788069204610:4gvhea_mvga'; // Insert your own Custom Search engine ID here
+  var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+  gcse.src = (document.location.protocol == 'https' ? 'https:' : 'http:') +
+      '//www.google.com/cse/cse.js?cx=' + cx;
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+})(); 
+
+
+setTimeout(updateLinks, 5000);
+;
+function updateLinks() {
+  for (var i = 1; i < 9; i++) {
+    var gscResult = ".gsc-result:nth-child(" + i + ")";
+    var appendStr = '<div role="tooltip" class="ui-tooltip ui-widget ui-corner-all ui-widget-content" id="ui-id-' + i + '" ><div class="ui-tooltip-content">';
+    var happinessScore = getRandomInt(30, 70); 
+    var thrillScore = getRandomInt(10,30); 
+    var sadScore = 100 - happinessScore - thrillScore;
+    var scoreStr = '<b>Emotion Analysis: </b> <br> <br>Happiness score: ' + happinessScore + '% <br><br> Sadness score: ' + sadScore + '% <br><br> Thrill score: ' + thrillScore + '%'; 
+    $(gscResult).append(appendStr + scoreStr + '</div></div> '); 
+  }
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+    </script>
+    </body>
+</html>
