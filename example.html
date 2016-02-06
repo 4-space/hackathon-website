@@ -6,22 +6,45 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Example Analyais</title>
+        <title>Example Analysis</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-        
+   <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
         
         <style>
+            input {
+                color:#444;
+            }
             .gs-webResult:hover { 
   background:#f5f5f5; 
   -webkit-transition: all .3s; 
   transition:all .3s;
 }
-
+.gsc-tabsArea {
+    display:none;
+}
 label {
   display: inline-block;
   width: 5em;
@@ -34,16 +57,14 @@ body {
 
 
 .ui-tooltip {
-  position:absolute; 
-  float:right; 
-  top:-50px;
+  float:right;  
   z-index:5000;
   display:none;
 } 
 
 .gsc-result:hover .ui-tooltip {
   display:block; 
-  position:absolute; 
+  position:fixed; 
   right:0px;;
   bottom:0px;
   top:400px;
@@ -52,11 +73,66 @@ body {
 }
         </style>
     </head>
-    <body>
-        
+    
+    
+<body id="page-top">
 
-<gcse:search></gcse:search>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Start DevBest</a>
+            </div>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">features</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">What's New</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <gcse:search></gcse:search>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/creative.js"></script>
 
 
 <script>
@@ -70,8 +146,19 @@ body {
 })(); 
 
 
-setTimeout(updateLinks, 5000);
-;
+setInterval(updateLinks, 3000);
+
+var isAnalyzed = false; 
+function checkSearch() {
+    if (isAnalyzed === false) { //if the page hasn't been analyzed yet
+        if ($(".gsc-result:nth-child(4)").length < 0) { //if there are search results
+            updateLinks(); 
+            isAnalyzed = true;
+        }
+    }
+}
+
+
 function updateLinks() {
   for (var i = 1; i < 9; i++) {
     var gscResult = ".gsc-result:nth-child(" + i + ")";
