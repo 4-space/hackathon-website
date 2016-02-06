@@ -496,7 +496,12 @@ header .button {
                     
                     <div class="col-sm-4">
                     <div class="third widget doughnut ">
-                        <h3>Today's Breakdown</h3> 
+                        
+                        <div class="chart-legend">
+                            <h3>Today's Breakdown</h3> 
+                            <p><span>This Week</span> &mdash; <strong>Last Week</strong></p>
+                            <p><a href="" class="button">Change Date Range</a><a href="" class="button">Filter by Location</a></p>
+                        </div>
 
                         <div class="chart-legend">
                             <ul>
@@ -520,18 +525,19 @@ header .button {
                             <p><span>This Week</span> &mdash; <strong>Last Week</strong></p>
                             <p><a href="" class="button">Change Date Range</a><a href="" class="button">Filter by Location</a></p>
                         </div>
+                        
+                        <div class="chart-legend">
+                            <ul>
+                                <li class="ship">Sad</li>
+                                <li class="rework">Happy</li>
+                                <li class="admin">Thrilling</li>
+                                <li class="prod">Angry</li>
+                            </ul>
+                        </div>
 
                         <div id="canvas-holder" class="canvas-container">
                             <canvas id="chart-area1" width="300" height="300" />
                         </div><div id="chartjs-tooltip" class="tooltip"></div>
-                        <div class="chart-legend">
-                            <ul>
-                                <li class="ship">Shipping &amp; Receiving</li>
-                                <li class="rework">Rework</li>
-                                <li class="admin">Administrative</li>
-                                <li class="prod">Production</li>
-                            </ul>
-                        </div>
                     </div>
                     </div>
                     <div class="col-sm-4">
@@ -541,8 +547,9 @@ header .button {
                             <p>Based on your location</p>
                             <p><a href="" class="button">Track another location</a></p>
                             <div id="canvas-holder" class="pull-right text-right">
-                                <canvas id="chart-area3" />
+                                <canvas id="chart-area3" height="300" />
                             </div>
+                            <p>&nbsp;</p>
                         </div>
                     </div>
                     </div>
@@ -760,6 +767,8 @@ var doughnutOpts = {
         window.myPie = new Chart(ctx7).Doughnut(pieData7, doughnutOpts);
         var ctx8 = document.getElementById("chart-area8").getContext("2d");
         window.myPie = new Chart(ctx8).Doughnut(pieData8, doughnutOpts);
+        var ctx6 = document.getElementById("chart-area6").getContext("2d");
+        window.myPie = new Chart(ctx6).Doughnut(pieData8, doughnutOpts);
         
         var ctx5 = document.getElementById("chart-area5").getContext("2d");
         var myBarChart = new Chart(ctx5).Bar(barData);

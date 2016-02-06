@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <title>Testing</title>
         <meta charset="UTF-8">
-        <script language="JavaScript" src="js/jquery.js"></script>
+    <script language="JavaScript" src="js/jquery.js"></script> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -17,20 +17,19 @@ and open the template in the editor.
             <a href="http://www.nytimes.com/2016/02/06/nyregion/crane-collapse-lower-manhattan.html?hp&action=click&pgtype=Homepage&clickSource=story-heading&module=first-column-region&region=top-news&WT.nav=top-news&_r=0">Hover over me!</a>
         </div>
         
+    <!-- jQuery -->
         <script>
             
             $(document).ready(function(){
-
                 function is_fields_valid(url) {
                     //should probably check if url is valid or not. 
                     return true;
                 }
-
                 $("a").hover(function(event) {
                     var url = $(this).attr('href'); 
                     if (is_fields_valid()) { 
                         $.ajax({
-                          url: "http://127.0.0.1:5000/",
+                          url: "http://localhost:5000/",
                           type: "post",
                           data: {'param':{"url":url}},
                           success: function(response) {
@@ -45,13 +44,13 @@ and open the template in the editor.
                             );
                           }
                         });
-
                     }
                 });
 });
-
             
             
         </script>
     </body>
 </html>
+Status API Training Shop Blog About Pricing
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
