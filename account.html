@@ -29,6 +29,134 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     
     <style>
+        
+        /*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+        
+        
     #canvas-holder {
         width: 100%;
         margin-top: 50px;
@@ -92,83 +220,324 @@
             font-weight:bold;color:#fff;
         }
         #main {
-            margin-top:-100px;
+            margin-top:100px;
+            color:#eee;
         }
+        #main h5 {
+            margin-bottom:20px;
+            margin-top:20px;
+            
+        }
+        #main h3 {
+            font-weight:bold;
+            font-family:"Merriweather";
+            margin-bottom:55px;
+            font-size:20px;
+        }
+        body {
+            font-family: "Open Sans";
+        }
+        #chart-area5 {
+            width:100%;
+            height:450px;
+            padding-bottom:30px;
+        }
+        
+        
+        /* button */
+.button {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.6em;
+    font-weight: 400;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 4px 6px;
+    margin: 0 10px;
+    position: relative;
+    background: #ccc;
+    color: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,0.1);
+    background: rgb(190,190,190); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(190,190,190,1) 0%, rgba(170,170,170,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(190,190,190,1)), color-stop(100%,rgba(170,170,170,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(190,190,190,1) 0%,rgba(170,170,170,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(190,190,190,1) 0%,rgba(170,170,170,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(190,190,190,1) 0%,rgba(170,170,170,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(190,190,190,1) 0%,rgba(170,170,170,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bebebe', endColorstr='#aaaaaa',GradientType=0 ); /* IE6-9 */
+}
+.button:hover {
+    background: #637b85;
+}
+/* Header styles */
+header {
+    text-align: center;
+    background: #637b85;
+    color: #fff;
+    margin-bottom: 40px;
+}
+header span {
+    font-weight: 200;
+}
+header .button {
+    font-size: 0.2em;
+    top: -6px;
+}
+ 
+
+.canvas-container {
+    min-height: 300px;
+    max-height: 600px;
+    position: relative;
+}
+.widget {
+    position: relative;
+    margin-bottom: 80px;
+    background: #efefef;
+    padding: 12px;
+    margin-bottom: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.chart-legend ul {
+    list-style: none;
+    width: 100%;
+    margin: 30px auto 0;
+}
+.chart-legend li {
+    text-indent: 16px;
+    line-height: 24px;
+    position: relative;
+    font-weight: 200;
+    display: block;
+    float: left;
+    width: 50%;
+    font-size: 0.8em;
+}
+.chart-legend  li:before {
+    display: block;
+    width: 10px;
+    height: 16px;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    content: "";
+}
+.ship:before { background-color: #637b85; }
+.rework:before { background-color: #2c9c69; }
+.admin:before { background-color: #dbba34; }
+.prod:before { background-color: #c62f29; }
+
+.widget p {
+    margin-top: 0;
+    text-align: center;
+}
+.widget h3 {
+    margin: -12px 0 12px -12px;
+    padding: 12px;
+    width: 100%;
+    text-align: center;
+    color: #627b86;
+    line-height: 2em;
+    background: #d0dde3;
+}
+        .widget.line p span {
+    color: #dbba34;
+}
+.widget.line p strong {
+    color: #637b85;
+    font-weight: 400;
+}
+
+.chart-box {text-align:center}
     </style>
 </head>
 
 <body id="page-top"> 
-    <nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="index.html"><b>Senti</b>meter</a>
-            </div>
+    
+    <div id="wrapper">
+        <nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="index.html"><b>Senti</b>meter</a>
+                </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="example.html">Example</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="about.html">How It Works</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="account.html">My Sentimeter</a>
-                    </li>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="page-scroll" href="example.html">Example</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="about.html">How It Works</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="account.html">My Sentimeter</a>
+                        </li>
+
+                        <li>
+                            <a class="page-scroll" href="social.html">Global Sentimeter</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="history.html">SentiHistory</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                
+                
+                <div class="col-sm-12" id="main">
+                    <img src="img/profilepic.jpg" class="col-sm-6 img-circle img-responsive"/>
+                    <h3>John Smith</h3>
+                    <h5><b>Age:</b> 24</h5>
+                    <h5><b>Gender:</b> Male</h5>
+                    <h5>United States | IT & Services</h5>
+                    <h5>Average Sentimeter Score: 8.9</h5>
+                    <br>
+                
+                <hr>
+                </div>
+                
+                <li>
+                    <a class="page-scroll" href="example.html">Example</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="about.html">How It Works</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="account.html">My Sentimeter</a>
+                </li>
+
+                <li>
+                    <a class="page-scroll" href="social.html">Global Sentimeter</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="history.html">SentiHistory</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="chart-box">
+                            <div id="canvas-holder">
+                                <canvas id="chart-area4" height="200"/>
+                            </div><div id="chartjs-tooltip"></div>
+                            <p>Sentimeter</p>
+                            <h3>Facebook</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="chart-box">
+                            <div id="canvas-holder" class="canvas-container">
+                                <canvas id="chart-area2" width="300" height="300" />
+                            </div><div id="chartjs-tooltip"></div>
+                            <p>Sentimeter</p>
+                            <h3>Twitter</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="chart-box">
+                            <div id="canvas-holder">
+                                <canvas id="chart-area4" height="200"/>
+                            </div><div id="chartjs-tooltip"></div>
+                            <p>Sentimeter</p>
+                            <h3>Spotify</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"> 
+                    <div id="profile-chart">
+                        <div id="canvas-holder" class="canvas-container">
+                            <canvas id="chart-area5" />
+                        </div>
+                    </div> 
+                </div>
+                
+                <div class="row">
                     
-                    <li>
-                        <a class="page-scroll" href="social.html">Global Sentimeter</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="history.html">SentiHistory</a>
-                    </li>
-                </ul>
+                    <div class="col-sm-4">
+                    <div class="third widget doughnut ">
+                        <h3>Today's Breakdown</h3> 
+
+                        <div class="chart-legend">
+                            <ul>
+                                <li class="ship">Happy</li>
+                                <li class="rework">Sad</li>
+                                <li class="admin">Inspiring</li>
+                                <li class="prod">Thrilling</li>
+                            </ul>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div id="canvas-holder" class="canvas-container">
+                            <canvas id="chart-area6" width="300" height="300" />
+                        </div><div id="chartjs-tooltip"></div>
+                    </div>
+                    </div>
+                    <div class="col-sm-4">
+                    <div class="third widget line">
+                        <div class="chart-legend">
+                            <h3>Sentimeter History</h3>
+                            <p><span>This Week</span> &mdash; <strong>Last Week</strong></p>
+                            <p><a href="" class="button">Change Date Range</a><a href="" class="button">Filter by Location</a></p>
+                        </div>
+
+                        <div id="canvas-holder" class="canvas-container">
+                            <canvas id="chart-area1" width="300" height="300" />
+                        </div><div id="chartjs-tooltip"></div>
+                        <div class="chart-legend">
+                            <ul>
+                                <li class="ship">Shipping &amp; Receiving</li>
+                                <li class="rework">Rework</li>
+                                <li class="admin">Administrative</li>
+                                <li class="prod">Production</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-sm-4">
+                    <div class="third widget">
+                        <div class="chart-legend">
+                            <h3>Global Sentimeter</h3>
+                            <p>Based on your location</p>
+                            <p><a href="" class="button">Track another location</a></p>
+                            <div id="canvas-holder" class="pull-right text-right">
+                                <canvas id="chart-area3" />
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <div class="header-3">
-        <h1>My Sentimeter</h1>
-    </div> 
-    <div id="main" class="container">
-        
-        <div class="col-sm-4">
-            <div id="canvas-holder">
-                <canvas id="chart-area2" width="300" height="300" />
-            </div><div id="chartjs-tooltip"></div>
-        </div>
-        <div class="col-sm-4"> 
-            <div id="canvas-holder">
-                <canvas id="chart-area1" width="300" height="300" />
-            </div><div id="chartjs-tooltip"></div>
-        </div>
-        <div class="col-sm-4"> 
-            <div id="canvas-holder">
-                <canvas id="chart-area4" width="300" height="300" />
-            </div><div id="chartjs-tooltip"></div>
-        </div>
-        
-        <hr>
-        <div id="canvas-holder">
-            <canvas id="chart-area3" width="800" height="800" />
-        </div>
-    </div>
-    <div class="container">
+        <!-- /#page-content-wrapper -->
 
-        <div id="canvas-holder">
-            <canvas id="chart-area5" width="600" height="300" />
-        </div>
     </div>
-
+    
+    <div class="push"></div>
     <script>
     Chart.defaults.global.customTooltips = function(tooltip) {
 
@@ -261,7 +630,7 @@ var radarData = {
     ]
 };
 var barData = {
-    labels: ["Dec 24", "Dec 25", "Dec 26", "Dec 27", "Dec 28", "Dec 29", "Dec 30", "Dec 31", "Jan 1", "Jan 2", "Jan 3", "Jan 4", "Jan 5"],
+    labels: ["Dec 17", "Dec 18", "Dec 19", "Dec 20", "Dec 21", "Dec 22", "Dec 23", "Dec 24", "Dec 25", "Dec 26", "Dec 27", "Dec 28", "Dec 29", "Dec 30", "Dec 31", "Jan 1", "Jan 2", "Jan 3", "Jan 4", "Jan 5"],
     datasets: [
         {
             label: "Sentimeter",
@@ -269,23 +638,29 @@ var barData = {
             strokeColor: "#4D5360",
             highlightFill: "#616774",
             highlightStroke: "#616774",
-            data: [65, 59, 80, 81, 56, 55, 40, 63, 53, 44, 78, 64, 69]
+            data: [68, 79, 51, 56, 77, 53, 65, 59, 80, 81, 56, 55, 40, 63, 53, 44, 78, 64, 69, 72]
         },
     ]
 };
 
+
+var doughnutOpts = {
+    segmentStrokeWidth : 1,
+    percentageInnerCutout : 80, // This is 0 for Pie charts
+}
+
     window.onload = function() {
         var ctx1 = document.getElementById("chart-area1").getContext("2d");
-        window.myPie = new Chart(ctx1).Doughnut(pieData);
+        window.myPie = new Chart(ctx1).Doughnut(pieData, doughnutOpts);
 
         var ctx2 = document.getElementById("chart-area2").getContext("2d");
-        window.myPie = new Chart(ctx2).Doughnut(pieData);
+        window.myPie = new Chart(ctx2).Doughnut(pieData, doughnutOpts);
         
         var ctx3 = document.getElementById("chart-area3").getContext("2d");
         var myRadarChart = new Chart(ctx3).Radar(radarData);
         
         var ctx4 = document.getElementById("chart-area4").getContext("2d");
-        window.myPie = new Chart(ctx4).Doughnut(pieData);
+        window.myPie = new Chart(ctx4).Doughnut(pieData, doughnutOpts);
         
         var ctx5 = document.getElementById("chart-area5").getContext("2d");
         var myBarChart = new Chart(ctx5).Bar(barData);
@@ -304,7 +679,12 @@ var barData = {
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script> 
     <script src="js/main.js"></script> 
-
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
 </body>
 
 </html>
