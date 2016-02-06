@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <title>Testing</title>
         <meta charset="UTF-8">
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script language="JavaScript" src="js/jquery.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -30,7 +30,7 @@ and open the template in the editor.
                     var url = $(this).attr('href'); 
                     if (is_fields_valid()) { 
                         $.ajax({
-                          url: "python/webpage_pull.py",
+                          url: "http://127.0.0.1:5000/",
                           type: "post",
                           data: {'param':{"url":url}},
                           success: function(response) {
