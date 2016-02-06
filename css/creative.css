@@ -148,7 +148,7 @@ aside {
 
     .navbar-default.affix {
         border-color: rgba(34,34,34,.05);
-        background-color: #000;
+        background-color: #fff;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand {
@@ -177,7 +177,7 @@ header {
     width: 100%;
     min-height: auto;
     text-align: center;
-    color: #000;
+    color: #fff;
     background-image: url(../img/header.gif);
     background-position: center;
     -webkit-background-size: cover;
