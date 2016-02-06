@@ -451,7 +451,7 @@ fieldset[disabled] .btn-primary.active {
 
     .btn-primary{
     position: relative;
-    top: 70px;
+    top: 300px;
 }
 
 ::-moz-selection {
