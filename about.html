@@ -35,6 +35,9 @@
             background: url("img/rainbow.jpg");
             background-size:cover;
         }
+        .service-box {
+            margin-bottom:20px; 
+        }
         </style>
 </head>
 
@@ -116,28 +119,28 @@ cloud machine and lift your SentiMeter scale today!</p>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
-                        <img src='img/paragraph_output.png' class="img-responsive"/>
-                        <h3>Python Backend</h3>
-                        <p class="text-muted">We use Python libraries and APIs to deliver fast results. </p>
+                        <img src='img/example.png' class="img-responsive"/>
+                        <h3>Predictive Search</h3>
+                        <p class="text-muted">Simply hover over links to see sentimeter measurements.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
                         <img src='img/history.png' class="img-responsive"/>
                         <h3>Sentimeter History</h3>
                         <p class="text-muted">View your progress and trends in social sentiment. </p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
                         <img src='img/account.png' class="img-responsive"/>
                         <h3>Daily Sentimeters</h3>
                         <p class="text-muted">Get daily sentimeters based on what you saw that day.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-lg-6 col-md-6 text-center">
                     <div class="service-box">
                         <img src='img/global.png' class="img-responsive"/>
                         <h3>Global Sentimeters</h3>
@@ -147,17 +150,90 @@ cloud machine and lift your SentiMeter scale today!</p>
             </div>
         </div>
     </section>
-<!--
+        
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>Download our Chrome Extension!</h2>
-                <a href="#" class="btn btn-default btn-xl wow tada">Download</a>
+                <h2 style='color:#fff;'>How Sentiment Analysis Works</h2>
             </div>
         </div>
     </aside>
--->
 
+    <section class="container text-center">
+        <div class="col-sm-12">
+            <h2>Step 1: Parsing Social Media</h2>
+            <p>Our chrome extension sends data based on the content you see, music you listen to, and even tweets you read. </p> 
+            <hr>
+        </div>
+        <div class="col-sm-4">
+            <h3>Music You Listen To</h3>
+            <img src="img/Spotify Screenshot.png" class="img-responsive">
+        </div>
+        <div class="col-sm-4">
+            <h3>Tweets You Read</h3>
+            <img src="img/Twitter Screenshot.png" class="img-responsive">
+        </div>
+        <div class="col-sm-4">
+            <h3>Posts You See</h3>
+            <img src="img/fb stress example.png" class="img-responsive">
+        </div>
+    </section>
+    <section class='row' style="background:#f5f5f5;">
+        <div class="container text-center"> 
+            <div class="col-sm-12">
+                <h2>Step 2: Sending to Python Backend</h2> 
+                <p>Using Python libraries and APIs, Sentimeter analyzes languages and web pages with 
+                    language recognition and processing.</p>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src='img/paragraph_output.png' class="img-responsive"/>
+                        <h3>Language Processing</h3>
+                        <p class="text-muted">With python's built-in libraries and third-party apis, we process social media language.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src='img/python-code.png' class="img-responsive"/>
+                        <h3>Algorithms</h3>
+                        <p class="text-muted">Our specialized algorithms interprets language, converting it to sentimeters. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container text-center">
+        <div class="col-sm-12">
+            <h2>Step 3: Converting to Sentimeters</h2>
+            <p>Using the algorithms in our python backend, we create sentimeters to measure happiness levels,
+                stress levels, sadness, excitement, and other universal human emotions.</p>
+            <hr>
+        </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src='img/history.png' class="img-responsive"/>
+                        <h3>Sentimeter History</h3>
+                        <p class="text-muted">View your progress and trends in social sentiment. </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src='img/account.png' class="img-responsive"/>
+                        <h3>Daily Sentimeters</h3>
+                        <p class="text-muted">Get daily sentimeters based on what you saw that day.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <img src='img/global.png' class="img-responsive"/>
+                        <h3>Global Sentimeters</h3>
+                        <p class="text-muted">See how you're doing compared with the world</p>
+                    </div>
+                </div>
+    </section>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
