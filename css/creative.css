@@ -447,8 +447,11 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-xl {
     padding: 15px 30px;
+}
+
+.btn-xl .btn-primary{
     position: relative;
-    bottom: 20px;
+    top: 50px;
 }
 
 ::-moz-selection {
