@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Remeasuring History in Sentimeters | DevBest</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+    <style>
+    #canvas-holder {
+        width: 100%;
+        margin-top: 50px;
+        text-align: center;
+    }
+    #chartjs-tooltip {
+        opacity: 1;
+        position: absolute;
+        background: rgba(0, 0, 0, .7);
+        color: white;
+        padding: 3px;
+        border-radius: 3px;
+        -webkit-transition: all .1s ease;
+        transition: all .1s ease;
+        pointer-events: none;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+    #chartjs-tooltip.below {
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+    #chartjs-tooltip.below:before {
+        border: solid;
+        border-color: #111 transparent;
+        border-color: rgba(0, 0, 0, .8) transparent;
+        border-width: 0 8px 8px 8px;
+        bottom: 1em;
+        content: "";
+        display: block;
+        left: 50%;
+        position: absolute;
+        z-index: 99;
+        -webkit-transform: translate(-50%, -100%);
+        transform: translate(-50%, -100%);
+    }
+    #chartjs-tooltip.above {
+        -webkit-transform: translate(-50%, -100%);
+        transform: translate(-50%, -100%);
+    }
+    #chartjs-tooltip.above:before {
+        border: solid;
+        border-color: #111 transparent;
+        border-color: rgba(0, 0, 0, .8) transparent;
+        border-width: 8px 8px 0 8px;
+        bottom: 1em;
+        content: "";
+        display: block;
+        left: 50%;
+        top: 100%;
+        position: absolute;
+        z-index: 99;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+    </style>
+    
+    
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+    
+    <style>
+        .header-3 {
+            background:#303e49;
+            font-size:65px; text-align:center;  
+            padding:100px 0 80px 0;
+        }
+    </style>
+</head>
+
+<body id="page-top"> 
+    <nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="index.html"><b>Senti</b>meter</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="example.html">Example</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="about.html">How It Works</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="account.html">My Sentimeter</a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="social.html">Global Sentimeter</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="history.html">SentiHistory</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="header-3">
+            <h1>Remeasuring History in Sentimeters</h1>
+    </div> 
+    <section id="cd-timeline" class="cd-container">
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<img src="img/cd-icon-picture.svg" alt="Picture">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>7 days ago</h2>
+				
+                                <div id="canvas-holder">
+                                    <canvas id="chart-area1" width="200" height="200" />
+                                </div>
+
+                                <div id="chartjs-tooltip"></div>
+                                <p>Your day was 50% happy, 30% sad, and 20% stressful. </p>
+				<a href="account.html" class="cd-read-more">View</a>
+				<span class="cd-date">Dec 31</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<img src="img/cd-icon-movie.svg" alt="Movie">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>6 days ago</h2>
+                                
+                                <div id="canvas-holder">
+                                    <canvas id="chart-area2" width="200" height="200" />
+                                </div>
+                                
+                                <p>Your day was 56% happy, 20% sad, and 24% stressful.</p>
+                                <a href="account.html" class="cd-read-more">View</a>
+				<span class="cd-date">Jan 1</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+                
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<img src="img/cd-icon-picture.svg" alt="Picture">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>5 days ago</h2>
+                                <div id="canvas-holder">
+                                    <canvas id="chart-area3" width="200" height="200" />
+                                </div>
+                                <p>Your day was 67% happy, 30% sad, and 3% stressful.</p>
+                                <a href="account.html" class="cd-read-more">View</a>
+				<span class="cd-date">Jan 2</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+				<img src="img/cd-icon-location.svg" alt="Location">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>4 days ago</h2>
+                                <div id="canvas-holder">
+                                    <canvas id="chart-area4" width="200" height="200" />
+                                </div>
+                                <p>Your day was 70% happy, 20% sad, and 10% stressful. </p>
+                                <a href="account.html" class="cd-read-more">View</a>
+				<span class="cd-date">Jan 3</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+				<img src="img/cd-icon-location.svg" alt="Location">
+			</div> <!-- cd-timeline-img -->
+                        
+			<div class="cd-timeline-content">
+				<h2>3 days ago</h2>
+                                <div id="canvas-holder">
+                                    <canvas id="chart-area5" width="200" height="200" />
+                                </div>
+                                <p>Your day was 79% happy, 16% sad, and 5% stressful.</p>
+                                <a href="account.html" class="cd-read-more">View</a>
+				<span class="cd-date">Jan 4</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<img src="img/cd-icon-movie.svg" alt="Movie">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>2 days ago</h2>
+                                <div id="canvas-holder">
+                                    <canvas id="chart-area6" width="200" height="200" />
+                                </div>
+                                <p>Your day was 92% happy, 6% sad, and 2% stressful.</p>
+                                <a href="account.html" class="cd-read-more">View</a>
+				<span class="cd-date">Jan 4</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+	</section> <!-- cd-timeline -->
+        
+    <script>
+    Chart.defaults.global.customTooltips = function(tooltip) {
+
+    	// Tooltip Element
+        var tooltipEl = $('#chartjs-tooltip');
+
+        // Hide if no tooltip
+        if (!tooltip) {
+            tooltipEl.css({
+                opacity: 0
+            });
+            return;
+        }
+
+        // Set caret Position
+        tooltipEl.removeClass('above below');
+        tooltipEl.addClass(tooltip.yAlign);
+
+        // Set Text
+        tooltipEl.html(tooltip.text);
+
+        // Find Y Location on page
+        var top;
+        if (tooltip.yAlign == 'above') {
+            top = tooltip.y - tooltip.caretHeight - tooltip.caretPadding;
+        } else {
+            top = tooltip.y + tooltip.caretHeight + tooltip.caretPadding;
+        }
+
+        // Display, position, and set styles for font
+        tooltipEl.css({
+            opacity: 1,
+            left: tooltip.chart.canvas.offsetLeft + tooltip.x + 'px',
+            top: tooltip.chart.canvas.offsetTop + top + 'px',
+            fontFamily: tooltip.fontFamily,
+            fontSize: tooltip.fontSize,
+            fontStyle: tooltip.fontStyle,
+        });
+    };
+
+    var pieData = [{
+        value: 300,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "Stressful"
+    }, {
+        value: 50,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Green"
+    }, {
+        value: 100,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Happy"
+    }, {
+        value: 40,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Sad"
+    }, {
+        value: 120,
+        color: "#4D5360",
+        highlight: "#616774",
+        label: "Dark Grey"
+    }];
+
+    var pieData1 = [{
+        value: 20,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "Stressful"
+    }, {
+        value: 50,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Happy"
+    }, {
+        value: 30,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Sad"
+    }];
+    var pieData2 = [{
+        value: 24,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "Stressful"
+    }, {
+        value: 56,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Happy"
+    }, {
+        value: 20,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Sad"
+    }];
+    var pieData3 = [{
+        value: 3,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "Stressful"
+    }, {
+        value: 67,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Happy"
+    }, {
+        value: 30,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Sad"
+    }];
+    var pieData4 = [{
+        value: 10,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "Stressful"
+    }, {
+        value: 70,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Happy"
+    }, {
+        value: 20,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Sad"
+    }];
+    var pieData5 = [{
+        value: 5,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "Stressful"
+    }, {
+        value: 79,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Happy"
+    }, {
+        value: 16,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Sad"
+    }];
+    var pieData6 = [{
+        value: 2,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "Stressful"
+    }, {
+        value: 92,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Happy"
+    }, {
+        value: 6,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Sad"
+    }];
+
+    window.onload = function() {
+        var ctx1 = document.getElementById("chart-area1").getContext("2d");
+        window.myPie = new Chart(ctx1).Pie(pieData1);
+
+        var ctx2 = document.getElementById("chart-area2").getContext("2d");
+        window.myPie = new Chart(ctx2).Pie(pieData2);
+        
+        var ctx3 = document.getElementById("chart-area3").getContext("2d");
+        window.myPie = new Chart(ctx3).Pie(pieData3);
+
+        var ctx4 = document.getElementById("chart-area4").getContext("2d");
+        window.myPie = new Chart(ctx4).Pie(pieData4);
+        
+        var ctx5 = document.getElementById("chart-area5").getContext("2d");
+        window.myPie = new Chart(ctx5).Pie(pieData5);
+
+        var ctx6 = document.getElementById("chart-area6").getContext("2d");
+        window.myPie = new Chart(ctx6).Pie(pieData6);
+    };
+    </script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/creative.js"></script> 
+    <script src="js/main.js"></script> 
+
+</body>
+
+</html>
+
