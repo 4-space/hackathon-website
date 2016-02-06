@@ -353,6 +353,9 @@ header .button {
 }
 
 .chart-box {text-align:center}
+.chart-box p {margin-top:20px; margin-bottom:5px;  font-size:12px; color:#787878;}
+.chart-box h3 { margin-top:5px; font-size:18px; }
+#title h5 {margin-top:90px; font-size:65px; border-bottom:1px dotted #ccc;  }
     </style>
 </head>
 
@@ -440,29 +443,42 @@ header .button {
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div id="title" class="col-sm-12 text-center">
+                        <h5>Your Daily Sentimeter</h5>
+                    </div>
+                    <div class="col-sm-3">
                         <div class="chart-box">
                             <div id="canvas-holder">
                                 <canvas id="chart-area4" height="200"/>
-                            </div><div id="chartjs-tooltip"></div>
+                            </div><div id="chartjs-tooltip" class="tooltip"></div>
                             <p>Sentimeter</p>
                             <h3>Facebook</h3>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="chart-box">
                             <div id="canvas-holder" class="canvas-container">
-                                <canvas id="chart-area2" width="300" height="300" />
-                            </div><div id="chartjs-tooltip"></div>
+                                <canvas id="chart-area2" height="300" />
+                            </div><div id="chartjs-tooltip" class="tooltip"></div>
                             <p>Sentimeter</p>
                             <h3>Twitter</h3>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    
+                    <div class="col-sm-3">
+                        <div class="chart-box">
+                            <div id="canvas-holder" class="canvas-container">
+                                <canvas id="chart-area8" height="300" />
+                            </div><div id="chartjs-tooltip" class="tooltip"></div>
+                            <p>Sentimeter</p>
+                            <h3>New York Times</h3>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
                         <div class="chart-box">
                             <div id="canvas-holder">
-                                <canvas id="chart-area4" height="200"/>
-                            </div><div id="chartjs-tooltip"></div>
+                                <canvas id="chart-area7" height="200"/>
+                            </div><div id="chartjs-tooltip" class="tooltip"></div>
                             <p>Sentimeter</p>
                             <h3>Spotify</h3>
                         </div>
@@ -494,7 +510,7 @@ header .button {
                         <br/>
                         <div id="canvas-holder" class="canvas-container">
                             <canvas id="chart-area6" width="300" height="300" />
-                        </div><div id="chartjs-tooltip"></div>
+                        </div><div id="chartjs-tooltip" class="tooltip"></div>
                     </div>
                     </div>
                     <div class="col-sm-4">
@@ -507,7 +523,7 @@ header .button {
 
                         <div id="canvas-holder" class="canvas-container">
                             <canvas id="chart-area1" width="300" height="300" />
-                        </div><div id="chartjs-tooltip"></div>
+                        </div><div id="chartjs-tooltip" class="tooltip"></div>
                         <div class="chart-legend">
                             <ul>
                                 <li class="ship">Shipping &amp; Receiving</li>
@@ -578,32 +594,111 @@ header .button {
         });
     };
 
-    var pieData = [{
-        value: 300,
-        color: "#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
-    }, {
-        value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
-    }, {
-        value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
-    }, {
-        value: 40,
+var pieData = [{
+        value: 20,
         color: "#949FB1",
         highlight: "#A8B3C5",
-        label: "Grey"
+        label: "Happy"
+    }, {
+        value: 45,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Sad"
     }, {
         value: 120,
         color: "#4D5360",
         highlight: "#616774",
-        label: "Dark Grey"
+        label: "Thrilling"
+    }, {
+        value: 28,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "Angry"
+    }, {
+        value: 10,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Disgusting"
     }];
+var pieData4 = [{
+        value: 70,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "Happy"
+    }, {
+        value: 110,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Sad"
+    }, {
+        value: 180,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Thrilling"
+    }, {
+        value: 30,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Angry"
+    }, {
+        value: 140,
+        color: "#4D5360",
+        highlight: "#616774",
+        label: "Disgusting"
+    }];
+var pieData7 = [{
+        value: 250,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "Happy"
+    }, {
+        value: 100,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Sad"
+    }, {
+        value: 80,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Thrilling"
+    }, {
+        value: 70,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Angry"
+    }, {
+        value: 40,
+        color: "#4D5360",
+        highlight: "#616774",
+        label: "Disgusting"
+    }];
+var pieData8 = [{
+        value: 150,
+        color: "#F7464A",
+        highlight: "#FF5A5E",
+        label: "Happy"
+    }, {
+        value: 100,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Sad"
+    }, {
+        value: 80,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Thrilling"
+    }, {
+        value: 70,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "Angry"
+    }, {
+        value: 40,
+        color: "#4D5360",
+        highlight: "#616774",
+        label: "Disgusting"
+    }];
+
 var radarData = {
     labels: ["Angry", "Anxious", "Exciting", "Sad", "Happy", "Inspiring", "Other"],
     datasets: [
@@ -660,7 +755,11 @@ var doughnutOpts = {
         var myRadarChart = new Chart(ctx3).Radar(radarData);
         
         var ctx4 = document.getElementById("chart-area4").getContext("2d");
-        window.myPie = new Chart(ctx4).Doughnut(pieData, doughnutOpts);
+        window.myPie = new Chart(ctx4).Doughnut(pieData4, doughnutOpts);
+        var ctx7 = document.getElementById("chart-area7").getContext("2d");
+        window.myPie = new Chart(ctx7).Doughnut(pieData7, doughnutOpts);
+        var ctx8 = document.getElementById("chart-area8").getContext("2d");
+        window.myPie = new Chart(ctx8).Doughnut(pieData8, doughnutOpts);
         
         var ctx5 = document.getElementById("chart-area5").getContext("2d");
         var myBarChart = new Chart(ctx5).Bar(barData);
