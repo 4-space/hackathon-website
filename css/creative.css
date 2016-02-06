@@ -143,12 +143,12 @@ aside {
 
     .navbar-default .nav > li>a:hover,
     .navbar-default .nav>li>a:focus:hover {
-        color: #fff;
+        color: #000;
     }
 
     .navbar-default.affix {
         border-color: rgba(34,34,34,.05);
-        background-color: #fff;
+        background-color: #000;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand {
@@ -177,7 +177,7 @@ header {
     width: 100%;
     min-height: auto;
     text-align: center;
-    color: #fff;
+    color: #000;
     background-image: url(../img/header.gif);
     background-position: center;
     -webkit-background-size: cover;
